@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "demo",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-d",
+                "D1F04731-3998-4D5D-BBD9-7E8C32F1AE22"
+            ]
+        },
+        {
+            "name": "demo (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "demo (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
