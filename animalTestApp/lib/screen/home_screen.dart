@@ -1,6 +1,4 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -36,14 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('yyyyyy'),
+            const Text(
+              'yyyyyy',
+              style: TextStyle(fontSize: 20),
+            ),
             Text('$_counter', style: Theme.of(context).textTheme.headline4),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        tooltip: 'shshsiss',
+        tooltip: 'test',
         child: const Icon(Icons.add),
       ),
     );
