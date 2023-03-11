@@ -97,3 +97,21 @@ Widget row(List<Widget> children, {Maa maa = Maa.center}) {
     children: children,
   );
 }
+
+Widget sizedBox(int index, int pageNumber, String image, String truePageName,
+    String fallsPageName) {
+  return SizedBox(
+    height: 50,
+    // width: 20,
+    child: Column(
+      // mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        // const Icon(Icons.abc),
+        // space(w: 3, h: 10),
+        img(image, w: 10, h: 10),
+        space(w: 3, h: 10),
+        text(index == pageNumber ? truePageName : fallsPageName)
+      ],
+    ),
+  );
+}

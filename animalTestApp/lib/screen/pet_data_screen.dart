@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_name/utils/constant.dart';
 
 class PetDataScreen extends StatefulWidget {
   const PetDataScreen({super.key});
@@ -10,6 +11,13 @@ class PetDataScreen extends StatefulWidget {
 class _PetDataScreenState extends State<PetDataScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      // width: 100,
+      color: white,
+      // height: 100,
+      // padding: const EdgeInsets.all(10),
+      // child: CircleAvatar(
+      //   child: text("1"),        )
+    );
   }
 }
