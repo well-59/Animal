@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/ui_utils.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,14 +12,13 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          width: 100,
-          height: 100,
-          padding: const EdgeInsets.all(10),
-          child: CircleAvatar(
-            child: text("1"),
-          )),
+    return Container(
+      // width: 100,
+      color: white,
+      // height: 100,
+      // padding: const EdgeInsets.all(10),
+      // child: CircleAvatar(
+      //   child: text("1"),        )
     );
   }
 }

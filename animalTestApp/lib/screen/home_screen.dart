@@ -34,22 +34,15 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: darkgreen,
       bottomNavigationBar: TabBar(
+        // indicatorColor: darkgreen,
         controller: tabC,
         tabs: [
-          // Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     img("imgName", w: 20, h: 20),
-          //     const CircularProgressIndicator(),
-          //     space(),
-          //     text(tabC.index == 0 ? "首頁" : "X")
-          //   ],
-          // ),
-          text(tabC.index == 0 ? "寵物資料" : "X"),
-          text(tabC.index == 1 ? "寵物資料" : "X"),
-          text(tabC.index == 2 ? "動物醫院" : "X"),
-          text(tabC.index == 3 ? "更多" : "X"),
+          sizedBox(tabC.index, 0, "man.png", "首頁", "首頁"),
+          sizedBox(tabC.index, 1, "paw.png", "寵物資料", "寵物資料"),
+          sizedBox(tabC.index, 2, "pet-house.png", "動物醫院", "動物醫院"),
+          sizedBox(tabC.index, 3, "more.png", "更多", "更多"),
         ],
         // indicatorColor: darkgreen,
         indicator: const BoxDecoration(
