@@ -50,3 +50,50 @@ Widget button(String txt, Function fun) {
       },
       child: Text(txt));
 }
+
+Widget textbutton(
+    double w, double h, String? labeltext, dynamic icons, Color colors) {
+  return Container(
+    margin: const EdgeInsets.only(left: 0.0, top: 10.0, bottom: 10.0),
+    width: w,
+    height: h,
+    decoration: BoxDecoration(
+      borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+      border: Border.all(width: 1.0, color: colors),
+    ),
+    child: TextField(
+      decoration: InputDecoration(
+        prefixIcon: Icon(
+          icons,
+          size: 20,
+        ),
+        labelText: labeltext,
+        labelStyle: const TextStyle(inherit: true, height: 10.0),
+        border: InputBorder.none,
+      ),
+      style: const TextStyle(
+        fontSize: 15.0,
+      ),
+    ),
+  );
+}
+
+enum Maa { start, center, spaceEvenly, spaceBetween }
+
+Widget row(List<Widget> children, {Maa maa = Maa.center}) {
+  var aa = MainAxisAlignment.start;
+
+  if (maa == Maa.start) {
+    aa = MainAxisAlignment.start;
+  } else if (maa == Maa.center) {
+    aa = MainAxisAlignment.center;
+  } else if (maa == Maa.spaceBetween) {
+    aa = MainAxisAlignment.spaceBetween;
+  } else if (maa == Maa.spaceEvenly) {
+    aa = MainAxisAlignment.spaceEvenly;
+  }
+  return Row(
+    mainAxisAlignment: aa,
+    children: children,
+  );
+}

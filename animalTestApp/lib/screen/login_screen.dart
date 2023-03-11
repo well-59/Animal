@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:package_name/screen/home_screen.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/tools.dart';
 import 'package:package_name/utils/ui_utils.dart';
 // import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,10 +13,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  String account = "";
-  String password = "";
+  String account = "111";
+  String password = "222";
 
-  doRegis() {}
+  doRegistration() {}
 
   doForgot() {}
 
@@ -49,29 +49,17 @@ class _LoginScreenState extends State<LoginScreen> {
           // print("Account:" + account + "," + password);
           if (account == "111" && password == "222") {
             // show("登入成功");
-            goto(context, const HomeScreen());
+            goto(context, const HomeScreen(), isReplaced: true);
           } else {
             //show Error
             // show("帳密有誤", isError: true);
           }
         }),
         space(h: 100, w: 50),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            gesture(
-              text('註冊'),
-              click: () {
-                doRegis();
-                // toast("尚未開放註冊");
-              },
-            ),
-            gesture(text('忘記密碼'), click: () {
-              doForgot();
-              // toast('忘記密碼');
-            })
-          ],
-        )
+        row([
+          gesture(text('註冊'), click: () => doRegistration()),
+          gesture(text('忘記密碼'), click: () => doForgot())
+        ], maa: Maa.spaceEvenly)
       ]),
     ));
   }
