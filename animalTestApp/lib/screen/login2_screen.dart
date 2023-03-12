@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:package_name/screen/home_screen.dart';
 import 'package:package_name/utils/constant.dart';
+import 'package:package_name/utils/tools.dart';
 import 'package:package_name/utils/ui_utils.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -11,22 +13,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<MyHomePage> {
+  String account = "111";
+  String password = "222";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        Container(
-          decoration: const BoxDecoration(
-            color: Color(0xFF619393),
-          ),
-          width: 355,
-          height: 264,
-          child: const Align(
-            alignment: Alignment.topRight,
-          ),
+        const SizedBox(
+          height: 50,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/bb.jpeg')),
+                shape: BoxShape.circle,
+                // borderRadius: BorderRadius.all(radius),
+                color: Color(0xFF619393),
+              ),
+              width: 355,
+              height: 364,
+              // child: const Align(
+              //   alignment: Alignment.topLeft,
+              // ),
+            ),
+          ],
         ),
         const SizedBox(
-          height: 100, //
+          height: 30, //
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -48,6 +66,10 @@ class _SplashScreenState extends State<MyHomePage> {
                   backgroundColor: MaterialStateProperty.all(
                       const Color.fromRGBO(212, 216, 22, 1))),
               onPressed: () {
+                if (account == "111" && password == "222") {
+                  // show("登入成功");
+                  goto(context, const HomeScreen(), isReplaced: true);
+                }
                 log("click", name: "INFO");
               },
               child: const Text(
