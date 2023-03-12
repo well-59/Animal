@@ -35,23 +35,34 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: darkgreen,
+      //   bottomNavigationBar: BottomNavigationBar(
+      //     backgroundColor: darkgreen,
+      //     selectedItemColor: green, //選中時的顏色
+      //     unselectedItemColor: darkgreen, //未選中的顏色
+      //     iconSize: 24.0,
+      //     items: [
+      //       bottomNavigationBar("man.png", "首頁"),
+      //       bottomNavigationBar("paw.png", "寵物資料"),
+      //       bottomNavigationBar("pet-house.png", "動物醫院"),
+      //       bottomNavigationBar("more.png", "更多")
+      //     ],
+      //   ),
       bottomNavigationBar: TabBar(
-        // indicatorColor: darkgreen,
         controller: tabC,
         tabs: [
-          sizedBox(tabC.index, 0, "man.png", "首頁", "首頁"),
-          sizedBox(tabC.index, 1, "paw.png", "寵物資料", "寵物資料"),
-          sizedBox(tabC.index, 2, "pet-house.png", "動物醫院", "動物醫院"),
-          sizedBox(tabC.index, 3, "more.png", "更多", "更多"),
+          tabBar(tabC.index, 0, "man.png", "首頁", "首頁"),
+          tabBar(tabC.index, 1, "paw.png", "寵物資料", "寵物資料"),
+          tabBar(tabC.index, 2, "pet-house.png", "動物醫院", "動物醫院"),
+          tabBar(tabC.index, 3, "more.png", "更多", "更多"),
         ],
-        // indicatorColor: darkgreen,
         indicator: const BoxDecoration(
           color: green,
           // borderRadius: BorderRadius.circular(20.0),
           // border: Border.all(width: 3.0, color: darkgreen)
         ),
-        indicatorWeight: 80.0,
+        indicatorWeight: 40.0,
       ),
+
       body: TabBarView(
         controller: tabC,
         children: const [
