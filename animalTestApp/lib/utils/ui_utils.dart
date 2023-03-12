@@ -98,18 +98,26 @@ Widget row(List<Widget> children, {Maa maa = Maa.center}) {
   );
 }
 
-Widget sizedBox(int index, int pageNumber, String image, String truePageName,
+BottomNavigationBarItem bottomNavigationBar(String image, String truePageName) {
+  return BottomNavigationBarItem(
+    icon: img(image, w: 10, h: 10),
+    label: truePageName,
+  );
+}
+
+Widget tabBar(int index, int pageNumber, String image, String truePageName,
     String fallsPageName) {
-  return SizedBox(
-    height: 50,
-    // width: 20,
+  return Tab(
+    // icon: img(image, w: 10, h: 10),
+    // text: "首頁",
     child: Column(
-      // mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        // space(h: 10),
         // const Icon(Icons.abc),
         // space(w: 3, h: 10),
         img(image, w: 10, h: 10),
-        space(w: 3, h: 10),
+        space(w: 3, h: 5),
         text(index == pageNumber ? truePageName : fallsPageName)
       ],
     ),
