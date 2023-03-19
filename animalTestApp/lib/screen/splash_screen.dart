@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/screen/login2_screen.dart';
+import 'package:package_name/screen/animal_login_screen.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/tools.dart';
 
@@ -14,12 +14,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 2), () {
       if (!mounted) return;
       goto(
           context,
-          const MyHomePage(
-            title: 'aaa',
+          const AnimalLoginScreen(
+            title: 'Animal',
           ),
           isReplaced: true);
     });
@@ -37,12 +37,13 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 // const CircularProgressIndicator(),
+                // Container(child: ,),
                 Image(image: AssetImage('assets/images/catPage.jpeg')),
                 // space(),
-                Text(
-                  "Loading",
-                  style: TextStyle(fontSize: 24, color: Colors.green),
-                )
+                // Text(
+                //   "Loading",
+                //   style: TextStyle(fontSize: 24, color: Colors.green),
+                // )
               ],
             )));
   }

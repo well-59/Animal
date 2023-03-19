@@ -67,8 +67,8 @@ class _HomeScreenState extends State<HomeScreen>
         controller: tabC,
         children: const [
           MainScreen(),
-          PetDataScreen(),
           MemberScreen(),
+          PetDataScreen(),
           MoreScreen()
         ],
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/utils/constant.dart';
+import 'package:package_name/utils/ui_utils.dart';
 
 class MemberScreen extends StatefulWidget {
   const MemberScreen({super.key});
@@ -9,15 +9,52 @@ class MemberScreen extends StatefulWidget {
 }
 
 class _MemberScreenState extends State<MemberScreen> {
+  List<String> nameArr = [
+    "littleDinosaur",
+    "bear",
+    "titanColossal",
+    "will",
+    "cat",
+  ];
+  List<String> empty = [
+    "add",
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // width: 100,
-      color: white,
-      // height: 100,
-      // padding: const EdgeInsets.all(10),
-      // child: CircleAvatar(
-      //   child: text("1"),        )
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Container(
+          margin: const EdgeInsets.only(left: 10, right: 10),
+          child: ListView(
+            // 每列三個圈,依照寵物數量新增圈,及row
+            // 並且有一個寵物新增按鈕
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 10, right: 10),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Wrap(
+                        children: nameArr
+                            .map((e) => itemCel(e, w: 100, h: 80))
+                            .toList(),
+                      ),
+                    ]),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 10, right: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:
+                      empty.map((e) => itemCel(e, w: 100, h: 80)).toList(),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

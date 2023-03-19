@@ -5,14 +5,14 @@ import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/tools.dart';
 import 'package:package_name/utils/ui_utils.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class AnimalLoginScreen extends StatefulWidget {
+  const AnimalLoginScreen({super.key, required this.title});
   final String title;
   @override
-  State<MyHomePage> createState() => _SplashScreenState();
+  State<AnimalLoginScreen> createState() => _AnimalLoginScreen();
 }
 
-class _SplashScreenState extends State<MyHomePage> {
+class _AnimalLoginScreen extends State<AnimalLoginScreen> {
   String account = "111";
   String password = "222";
 
@@ -20,9 +20,7 @@ class _SplashScreenState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        const SizedBox(
-          height: 50,
-        ),
+        space(h: 50),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -32,20 +30,14 @@ class _SplashScreenState extends State<MyHomePage> {
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/bb.jpeg')),
                 shape: BoxShape.circle,
-                // borderRadius: BorderRadius.all(radius),
                 color: Color(0xFF619393),
               ),
               width: 355,
               height: 364,
-              // child: const Align(
-              //   alignment: Alignment.topLeft,
-              // ),
             ),
           ],
         ),
-        const SizedBox(
-          height: 30, //
-        ),
+        space(h: 30),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [textbutton(260, 45, 'Account', Icons.person, black)],

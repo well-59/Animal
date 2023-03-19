@@ -3,7 +3,6 @@ import 'package:package_name/screen/home_screen.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/tools.dart';
 import 'package:package_name/utils/ui_utils.dart';
-// import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -46,6 +45,11 @@ class _LoginScreenState extends State<LoginScreen> {
         }),
         space(h: 30, w: 20),
         button('登入', () {
+          // API 寫法
+          // () async {
+          //   var rtn = await getTVList();
+          //   debugPrint((rtn.res?.tv?.length ?? 0).toString());
+
           // print("Account:" + account + "," + password);
           if (account == "111" && password == "222") {
             // show("登入成功");

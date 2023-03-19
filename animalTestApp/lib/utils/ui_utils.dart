@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_name/utils/constant.dart';
 
 Widget space({double w = 16, double h = 16}) {
   return SizedBox(
@@ -43,16 +44,25 @@ Widget img(String imgName, {double w = 120, double h = 120}) {
   );
 }
 
-Widget button(String txt, Function fun) {
+Widget button(String txt, Function fun, {Color color = Colors.blue}) {
   return ElevatedButton(
-      onPressed: () {
-        fun();
-      },
-      child: Text(txt));
+    onPressed: () {
+      fun();
+    },
+    style: OutlinedButton.styleFrom(
+      backgroundColor: Colors.purple,
+    ),
+    child: Text(txt),
+  );
 }
 
 Widget textbutton(
-    double w, double h, String? labeltext, dynamic icons, Color colors) {
+  double w,
+  double h,
+  String? labeltext,
+  dynamic icons,
+  Color colors,
+) {
   return Container(
     margin: const EdgeInsets.only(left: 0.0, top: 10.0, bottom: 10.0),
     width: w,
@@ -80,7 +90,10 @@ Widget textbutton(
 
 enum Maa { start, center, spaceEvenly, spaceBetween }
 
-Widget row(List<Widget> children, {Maa maa = Maa.center}) {
+Widget row(
+  List<Widget> children, {
+  Maa maa = Maa.center,
+}) {
   var aa = MainAxisAlignment.start;
 
   if (maa == Maa.start) {
@@ -108,18 +121,64 @@ BottomNavigationBarItem bottomNavigationBar(String image, String truePageName) {
 Widget tabBar(int index, int pageNumber, String image, String truePageName,
     String fallsPageName) {
   return Tab(
-    // icon: img(image, w: 10, h: 10),
-    // text: "首頁",
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // space(h: 10),
-        // const Icon(Icons.abc),
-        // space(w: 3, h: 10),
         img(image, w: 10, h: 10),
         space(w: 3, h: 5),
         text(index == pageNumber ? truePageName : fallsPageName)
       ],
     ),
   );
+}
+
+Widget itemCel(String e, {double w = 117, double h = 117}) {
+  return Column(
+    children: [
+      Container(
+        width: w,
+        height: h,
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(image: AssetImage('assets/images/$e.png')),
+        ),
+      ),
+      Text(e),
+    ],
+  );
+}
+
+class MyInputButton extends StatelessWidget {
+  // Widget _buildMyInputButton(BuildContext context) {
+  //   return Container();
+  // }
+
+  @override
+  Widget build(BuildContext context,
+      {String name = '', Color color = Colors.black}) {
+    return Row(children: [
+      text(name),
+      space(w: 5),
+      Container(
+        margin: const EdgeInsets.only(left: 0.0, top: 10.0, bottom: 10.0),
+        width: screenW / 3,
+        height: screenH / 30,
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+          border: Border.all(width: 1.0, color: color),
+        ),
+        child: const TextField(
+          decoration: InputDecoration(
+            prefix: Text(' '),
+            labelStyle: TextStyle(inherit: true, height: 10.0),
+            border: InputBorder.none,
+          ),
+          style: TextStyle(
+            fontSize: 15.0,
+          ),
+        ),
+      )
+    ]);
+  }
 }
