@@ -36,11 +36,12 @@ GestureDetector gesture(Widget child, {required Null Function() click}) {
   );
 }
 
-Widget img(String imgName, {double w = 120, double h = 120}) {
+Widget img(String imgName, {double w = 120, double h = 120, Color c = white}) {
   return Image.asset(
     "assets/images/$imgName",
     width: w,
     height: h,
+    color: c,
   );
 }
 
@@ -50,7 +51,7 @@ Widget button(String txt, Function fun, {Color color = Colors.blue}) {
       fun();
     },
     style: OutlinedButton.styleFrom(
-      backgroundColor: Colors.purple,
+      backgroundColor: color,
     ),
     child: Text(txt),
   );
@@ -121,12 +122,17 @@ BottomNavigationBarItem bottomNavigationBar(String image, String truePageName) {
 Widget tabBar(int index, int pageNumber, String image, String truePageName,
     String fallsPageName) {
   return Tab(
+    height: 75,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        img(image, w: 10, h: 10),
         space(w: 3, h: 5),
-        text(index == pageNumber ? truePageName : fallsPageName)
+        img(image, w: 30, h: 40, c: index == pageNumber ? black : white),
+        space(w: 3, h: 5),
+        text(
+            size: 15,
+            index == pageNumber ? truePageName : fallsPageName,
+            color: index == pageNumber ? black : white)
       ],
     ),
   );
@@ -150,15 +156,14 @@ Widget itemCel(String e, {double w = 117, double h = 117}) {
 }
 
 class MyInputButton extends StatelessWidget {
-  // Widget _buildMyInputButton(BuildContext context) {
-  //   return Container();
-  // }
+  final String? name;
+
+  const MyInputButton({super.key, this.name});
 
   @override
-  Widget build(BuildContext context,
-      {String name = '', Color color = Colors.black}) {
+  Widget build(BuildContext context, {Color color = Colors.black}) {
     return Row(children: [
-      text(name),
+      text(name ?? ""),
       space(w: 5),
       Container(
         margin: const EdgeInsets.only(left: 0.0, top: 10.0, bottom: 10.0),
@@ -170,7 +175,7 @@ class MyInputButton extends StatelessWidget {
         ),
         child: const TextField(
           decoration: InputDecoration(
-            prefix: Text(' '),
+            contentPadding: EdgeInsets.only(left: 16, bottom: 18),
             labelStyle: TextStyle(inherit: true, height: 10.0),
             border: InputBorder.none,
           ),

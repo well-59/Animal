@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen>
       bottomNavigationBar: TabBar(
         controller: tabC,
         tabs: [
-          tabBar(tabC.index, 0, "man.png", "首頁", "首頁"),
+          tabBar(tabC.index, 0, "user.png", "首頁", "首頁"),
           tabBar(tabC.index, 1, "paw.png", "寵物資料", "寵物資料"),
           tabBar(tabC.index, 2, "pet-house.png", "動物醫院", "動物醫院"),
           tabBar(tabC.index, 3, "more.png", "更多", "更多"),
