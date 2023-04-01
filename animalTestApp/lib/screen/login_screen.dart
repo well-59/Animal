@@ -36,20 +36,19 @@ class _LoginScreenState extends State<LoginScreen> {
         input((v) {
           account = v;
         }),
-        space(h: 30, w: 20),
+        space(h: 30),
         text(
           '請輸入密碼',
         ),
         input((v) {
           password = v;
         }),
-        space(h: 30, w: 20),
+        space(h: 30),
         button('登入', () {
           // API 寫法
           // () async {
           //   var rtn = await getTVList();
           //   debugPrint((rtn.res?.tv?.length ?? 0).toString());
-
           // print("Account:" + account + "," + password);
           if (account == "111" && password == "222") {
             // show("登入成功");
@@ -59,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
             // show("帳密有誤", isError: true);
           }
         }),
-        space(h: 100, w: 50),
+        space(h: 100),
         row([
           gesture(text('註冊'), click: () => doRegistration()),
           gesture(text('忘記密碼'), click: () => doForgot())

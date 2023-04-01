@@ -45,6 +45,39 @@ Widget img(String imgName, {double w = 120, double h = 120, Color c = white}) {
   );
 }
 
+class PurpleButton extends StatelessWidget {
+  const PurpleButton({
+    super.key,
+    required this.txt,
+    required this.onChanged,
+    required this.buttonColor,
+    this.buttonRadius = 10,
+    this.width = 100,
+    this.height = 50,
+  });
+  final String txt;
+  final VoidCallback onChanged;
+  final Color buttonColor;
+  final double buttonRadius;
+  final double width;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: ElevatedButton(
+        onPressed: onChanged,
+        child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(buttonRadius)),
+            child: Text(txt)),
+      ),
+    );
+  }
+}
+
 Widget button(String txt, Function fun, {Color color = Colors.blue}) {
   return ElevatedButton(
     onPressed: () {
@@ -155,6 +188,23 @@ Widget itemCel(String e, {double w = 117, double h = 117}) {
   );
 }
 
+Widget itemCircle(String e, {double w = 117, double h = 117}) {
+  return Column(
+    children: [
+      Container(
+        width: w,
+        height: h,
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(image: AssetImage('assets/images/$e.png')),
+        ),
+      ),
+      // Text(e),
+    ],
+  );
+}
+
 class MyInputButton extends StatelessWidget {
   final String? name;
 
@@ -185,5 +235,161 @@ class MyInputButton extends StatelessWidget {
         ),
       )
     ]);
+  }
+}
+
+Widget akiDropdownButton(
+    String selectedV, Function doSelect, List<String> items) {
+  return DropdownButton<String>(
+    value: selectedV,
+    // icon: const Icon(Icons.arrow_downward),
+    // elevation: 16,
+    style: const TextStyle(color: Colors.deepPurple),
+    // underline: Container(
+    //   height: 2,
+    //   color: Colors.deepPurpleAccent,
+    // ),
+    onChanged: (String? value) {
+      doSelect(value);
+    },
+    items: items.map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    }).toList(),
+  );
+}
+
+class MyNewDropdownButton extends StatefulWidget {
+  const MyNewDropdownButton({super.key});
+
+  @override
+  State<MyNewDropdownButton> createState() => _MyNewDropdownButtonState();
+}
+
+class _MyNewDropdownButtonState extends State<MyNewDropdownButton> {
+  String selectTrue = 'Y';
+  final List<String> listYN = <String>['Y', 'N'];
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton(
+        value: selectTrue,
+        items: listYN
+            .map<DropdownMenuItem<String>>((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
+            .toList(),
+        onChanged: (String? text) {
+          setState(() {
+            selectTrue = text ?? "待選擇";
+          });
+        });
+  }
+}
+
+class MyDropdownButton extends StatefulWidget {
+  final List<String> listYorN;
+  const MyDropdownButton(
+    this.listYorN, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<MyDropdownButton> createState() => _MyDropdownButtonState();
+}
+
+// const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+
+class _MyDropdownButtonState extends State<MyDropdownButton> {
+  // MyDropdownButtonState();
+  // _MyDropdownButtonState(List<String>? list);
+// const MyDropdownButton({super.key, this.listYorN});
+  // {last final List<String>? listYorN}
+
+  String dropdownValue = "";
+
+  @override
+  void initState() {
+    super.initState();
+    dropdownValue = widget.listYorN.first;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? value) {
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
+      items: widget.listYorN.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+}
+
+class DemoButton extends StatelessWidget {
+  const DemoButton(
+      {super.key,
+      required this.buttonText,
+      this.textColor = Colors.red,
+      this.height = 36,
+      this.width = 230,
+      this.buttonColor = Colors.black,
+      required this.onPress});
+  final String buttonText;
+  final Color textColor;
+  final double height;
+  final double width;
+  final Color buttonColor;
+  final VoidCallback onPress;
+
+  const DemoButton.confirm(
+      {super.key, required this.onPress, required this.buttonText})
+      : height = 36,
+        width = 230,
+        buttonColor = Colors.blue,
+        textColor = Colors.black;
+
+  const DemoButton.cancel(
+      {super.key, required this.onPress, required this.buttonText})
+      : height = 36,
+        width = 230,
+        buttonColor = Colors.red,
+        textColor = Colors.white;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: buttonColor,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          buttonText,
+          style: TextStyle(fontSize: 12, color: textColor),
+        ),
+      ),
+    );
   }
 }
