@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/utils/enum/enum.dart';
 import 'package:package_name/utils/ui_utils.dart';
 
 class AnimalMedicalRecordersScreen extends StatefulWidget {
@@ -16,9 +18,7 @@ class AnimalMedicalRecordersScreen extends StatefulWidget {
 }
 
 class _AnimalLoginScreen extends State<AnimalMedicalRecordersScreen> {
-  // String value = "3";
-
-  String name = 'marco';
+  // String name = widget.titleString ?? "";
   static const List<String> listDate = <String>[
     '2023/02/01',
     '2023/02/02',
@@ -59,37 +59,48 @@ class _AnimalLoginScreen extends State<AnimalMedicalRecordersScreen> {
                 row([
                   Column(
                     children: [
-                      itemCircle(widget.imageString ?? ""),
+                      ItemImgCircle(widget.imageString ?? ""),
                     ],
                   ),
                 ], maa: Maa.center),
               ]),
               Column(children: [
-                Text(
-                  '$name醫療紀錄',
-                  style: const TextStyle(fontSize: 20),
+                Text(widget.imageString ?? ""),
+                const Text(
+                  ' 醫療紀錄',
+                  style: TextStyle(fontSize: 20),
                 ),
-                text(size: 15, '晶片號碼: SK8712356789', color: Colors.blue),
+                const TextUnderline(
+                  '晶片號碼: SK8712356789',
+                  size: 15,
+                  color: Colors.blue,
+                ),
               ])
             ]),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text('從'),
-                space(w: 3),
+                const Space16(
+                  width: 3,
+                ),
                 akiDropdownButton(selectDate, (v) {
                   setState(() {
                     selectDate = v;
                   });
                 }, listDate),
                 const Text('~'),
-                space(w: 3),
+                const Space16(
+                  width: 3,
+                ),
                 akiDropdownButton(selectDate, (v) {
                   setState(() {
                     selectDate = v;
                   });
                 }, listDate),
-                space(w: 3),
+                const Space16(
+                  width: 3,
+                ),
                 const Text('到')
               ],
             ),
@@ -97,12 +108,16 @@ class _AnimalLoginScreen extends State<AnimalMedicalRecordersScreen> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('日期時間'),
-                    space(w: 10),
-                    const Text('醫院名稱'),
-                    space(w: 10),
-                    const Text('診斷資料')
+                  children: const [
+                    Text('日期時間'),
+                    Space16(
+                      width: 10,
+                    ),
+                    Text('醫院名稱'),
+                    Space16(
+                      width: 10,
+                    ),
+                    Text('診斷資料')
                   ],
                 )
               ],

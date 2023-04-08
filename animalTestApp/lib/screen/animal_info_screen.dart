@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/screen/animal_medical_recordes_screen.dart';
+import 'package:package_name/screen/animal_medical_recorders_screen.dart';
+import 'package:package_name/utils/class/statefulWidget.dart';
+import 'package:package_name/utils/class/statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
+import 'package:package_name/utils/enum/enum.dart';
 import 'package:package_name/utils/tools.dart';
 import 'package:package_name/utils/ui_utils.dart';
 
@@ -16,9 +19,7 @@ class AnimalInformationScreen extends StatefulWidget {
 }
 
 class _AnimalLoginScreen extends State<AnimalInformationScreen> {
-  String value = "3";
-  // static const List<String> listYN = <String>['Y', 'N'];
-  static const List<String> listNumbers = <String>[
+  List<String> listNumbers = <String>[
     '0',
     '1',
     '2',
@@ -31,8 +32,9 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
     '9',
     '10'
   ];
-
+  String value = '3';
   String selectNum = '0';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,29 +59,51 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
               row([
                 Column(
                   children: [
-                    itemCel(widget.imageString ?? ""),
+                    ItemImgWithText(widget.imageString ?? ""),
                   ],
                 ),
               ], maa: Maa.center),
-              space(h: 20),
+              const Space16(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  button(color: Colors.purple, '醫療紀錄', () {
-                    goto(
-                      context,
-                      AnimalMedicalRecordersScreen(
-                        imageString: widget.imageString,
-                      ),
-                    );
-                  }),
-                  button(color: Colors.purple, '疫苗紀錄', () {}),
-                  button(color: Colors.purple, '保險單', () {}),
+                  PurpleButton(
+                    buttonColor: Colors.purple,
+                    text: '醫療紀錄',
+                    onChanged: () {
+                      goto(
+                        context,
+                        AnimalMedicalRecordersScreen(
+                          imageString: widget.imageString,
+                        ),
+                      );
+                    },
+                  ),
+                  PurpleButton(
+                    buttonColor: Colors.purple,
+                    text: '疫苗紀錄',
+                    onChanged: () {},
+                  ),
+                  PurpleButton(
+                    buttonColor: Colors.purple,
+                    text: '保險單',
+                    onChanged: () {},
+                  ),
                 ],
               ),
-              space(h: 20),
-              text(size: 15, '晶片號碼: SK8712356789', color: Colors.blue),
-              space(h: 20),
+              const Space16(
+                height: 20,
+              ),
+              const TextUnderline(
+                '晶片號碼: SK8712356789',
+                size: 15,
+                color: Colors.blue,
+              ),
+              const Space16(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -87,11 +111,15 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
                     name: "名字",
                   ),
                   Row(children: [
-                    space(w: 5),
-                    Row(children: [
-                      const Text('結紮'),
-                      space(w: 5),
-                      const MyNewDropdownButton(),
+                    const Space16(
+                      width: 5,
+                    ),
+                    Row(children: const [
+                      Text('結紮'),
+                      Space16(
+                        width: 5,
+                      ),
+                      MyNewDropdownButton(),
                     ]),
                   ]),
                 ],
@@ -104,7 +132,9 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
                   ),
                   Row(children: [
                     const Text('年齡'),
-                    space(w: 5),
+                    const Space16(
+                      width: 5,
+                    ),
                     akiDropdownButton(selectNum, (v) {
                       setState(() {
                         selectNum = v;
@@ -119,9 +149,11 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
                   const MyInputButton(
                     name: "領養日",
                   ),
-                  Row(children: [
-                    const Text(' '),
-                    space(w: 100),
+                  Row(children: const [
+                    Text(' '),
+                    Space16(
+                      width: 100,
+                    ),
                   ]),
                 ],
               ),
@@ -131,9 +163,11 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
                   const MyInputButton(
                     name: "領養機構",
                   ),
-                  Row(children: [
-                    const Text(' '),
-                    space(w: 130),
+                  Row(children: const [
+                    Text(' '),
+                    Space16(
+                      width: 130,
+                    ),
                   ]),
                 ],
               ),
@@ -143,13 +177,17 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
                   const MyInputButton(
                     name: "出生日期",
                   ),
-                  Row(children: [
-                    const Text(' '),
-                    space(w: 130),
+                  Row(children: const [
+                    Text(' '),
+                    Space16(
+                      width: 130,
+                    ),
                   ]),
                 ],
               ),
-              space(h: 50),
+              const Space16(
+                height: 50,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -158,12 +196,13 @@ class _AnimalLoginScreen extends State<AnimalInformationScreen> {
               ),
               // DemoButton.confirm(onPress: () {}, buttonText: "工廠按鈕確認鍵"),
               // DemoButton.cancel(onPress: () {}, buttonText: "工廠按鈕取消鍵")
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: Image.asset(
-                    'assets/images/bb.jpeg',
-                    fit: BoxFit.contain,
-                  ))
+              // ClipRRect(
+              //   borderRadius: BorderRadius.circular(40),
+              //   child: Image.asset(
+              //     'assets/images/bb.jpeg',
+              //     fit: BoxFit.contain,
+              //   ),
+              // )
             ],
           ),
         ),

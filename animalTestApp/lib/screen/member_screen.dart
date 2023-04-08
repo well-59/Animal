@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/utils/ui_utils.dart';
+import 'package:package_name/utils/class/statelessWidget.dart';
 
 class MemberScreen extends StatefulWidget {
   const MemberScreen({super.key});
@@ -38,7 +38,11 @@ class _MemberScreenState extends State<MemberScreen> {
                     children: [
                       Wrap(
                         children: nameArr
-                            .map((e) => itemCel(e, w: 100, h: 80))
+                            .map((e) => ItemImgWithText(
+                                  e,
+                                  width: 100,
+                                  height: 80,
+                                ))
                             .toList(),
                       ),
                     ]),
@@ -47,8 +51,15 @@ class _MemberScreenState extends State<MemberScreen> {
                 margin: const EdgeInsets.only(left: 10, right: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:
-                      empty.map((e) => itemCel(e, w: 100, h: 80)).toList(),
+                  children: empty
+                      .map(
+                        (e) => ItemImgWithText(
+                          e,
+                          width: 100,
+                          height: 80,
+                        ),
+                      )
+                      .toList(),
                 ),
               )
             ],

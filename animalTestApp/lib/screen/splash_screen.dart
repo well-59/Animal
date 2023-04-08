@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 // const CircularProgressIndicator(),
                 // Container(child: ,),
                 Image(image: AssetImage('assets/images/catPage.jpeg')),
-                // space(),
+
                 // Text(
                 //   "Loading",
                 //   style: TextStyle(fontSize: 24, color: Colors.green),
