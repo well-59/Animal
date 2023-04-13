@@ -1,9 +1,11 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:package_name/screen/homePage/home_screen.dart';
+import 'package:package_name/screen/services/auth_services.dart';
 import 'package:package_name/utils/class/statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/tools.dart';
+import 'package:package_name/utils/ui_utils.dart';
 
 class AnimalLoginScreen extends StatefulWidget {
   const AnimalLoginScreen({super.key, required this.title});
@@ -126,15 +128,17 @@ class _AnimalLoginScreen extends State<AnimalLoginScreen> {
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Row(
                     children: [
-                      Container(
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage('assets/images/google.png')),
-                          // shape: BoxShape.circle,
-                        ),
-                        width: MediaQuery.of(context).size.width / 4.5,
-                        height: MediaQuery.of(context).size.height / 10,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SquareTile(
+                            onTap: () async {
+                              var getGoogle =
+                                  await AuthServices().signInWithGoogle();
+                            },
+                            imagePath: 'assets/images/google.png',
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         width: 20,
@@ -154,28 +158,6 @@ class _AnimalLoginScreen extends State<AnimalLoginScreen> {
                 ),
               ],
             ),
-
-            // Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            //   Container(
-            //     margin: const EdgeInsets.only(top: 10, bottom: 20.0),
-            //     width: MediaQuery.of(context).size.width / 1.5,
-            //     height: MediaQuery.of(context).size.height / 15,
-            //     child: OutlinedButton(
-            //       style: ButtonStyle(
-            //           shape: MaterialStateProperty.all(RoundedRectangleBorder(
-            //               borderRadius: BorderRadius.circular(30.0))),
-            //           backgroundColor: MaterialStateProperty.all(
-            //               const Color.fromRGBO(212, 216, 22, 1))),
-            //       onPressed: () {
-            //         log("click", name: "INFO");
-            //       },
-            //       child: const Text(
-            //         "sign with Google",
-            //         style: TextStyle(color: black),
-            //       ),
-            //     ),
-            //   )
-            // ]),
           ]),
         ),
       ),

@@ -14,7 +14,10 @@ dependencies:
   cupertino_icons: ^1.0.5
   cupertino_stepper: ^0.2.1
   firebase_auth: ^4.2.9
+
   http: ^0.13.5
+  firebase_core: ^2.9.0
+  google_sign_in: ^6.1.0
 
 dev_dependencies:
   flutter_test:

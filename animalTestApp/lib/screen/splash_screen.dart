@@ -36,14 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                // const CircularProgressIndicator(),
-                // Container(child: ,),
                 Image(image: AssetImage('assets/images/catPage.jpeg')),
-
-                // Text(
-                //   "Loading",
-                //   style: TextStyle(fontSize: 24, color: Colors.green),
-                // )
               ],
             )));
   }

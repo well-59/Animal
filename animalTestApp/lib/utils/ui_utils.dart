@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:package_name/utils/class/statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/enum/enum.dart';
