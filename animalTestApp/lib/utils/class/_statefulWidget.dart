@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class MyNewDropdownButton extends StatefulWidget {
@@ -82,8 +84,6 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
   }
 }
 
-
-
 // class GotoNextWidget extends StatefulWidget {
 //   const GotoNextWidget(this.screen,{super.key,this.isReplaced= false});
 // final bool isReplaced;
@@ -104,3 +104,53 @@ class _MyDropdownButtonState extends State<MyDropdownButton> {
 //   }
 //   }
 // }
+
+// ignore: camel_case_types
+class Well_PassField extends StatefulWidget {
+  final String? iniV;
+  final String? hint;
+  final String? label;
+  final Function? onChange;
+
+  const Well_PassField(
+      {this.iniV, this.hint, this.label, this.onChange, super.key});
+
+  @override
+  State<Well_PassField> createState() => _PassTextState();
+}
+
+class _PassTextState extends State<Well_PassField> {
+  bool obscure = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width - 32,
+      child: Stack(
+        children: [
+          TextFormField(
+            obscureText: obscure,
+            initialValue: widget.iniV,
+            decoration: InputDecoration(
+                hintText: widget.hint,
+                label: widget.label == null ? null : Text(widget.label!)),
+            onChanged: (v) {
+              widget.onChange!(v);
+            },
+          ),
+          Positioned(
+            top: 24,
+            right: 0,
+            child: GestureDetector(
+              child: Icon(obscure ? Icons.visibility : Icons.visibility_off),
+              onTap: () {
+                obscure = !obscure;
+                setState(() {});
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

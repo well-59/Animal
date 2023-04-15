@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/ui_utils.dart';
 
@@ -58,9 +58,39 @@ class _AnimalLoginScreen extends State<PersonalInformationScreen> {
                   Column(
                     children: [
                       ItemImgWithText(widget.imageString ?? ""),
+                      const SizedBox(
+                        height: 10,
+                      ),
                     ],
                   ),
                 ],
+              ),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Icon(Icons.phone),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("(TW) 0800 000 000")
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Icon(Icons.email),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Animal_hippopotamus@gmail.com")
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,7 +139,6 @@ class _AnimalLoginScreen extends State<PersonalInformationScreen> {
                   // ),
                   Container(
                     width: MediaQuery.of(context).size.width / 2,
-                    // height: MediaQuery.of(context).size.sheight / 14,
                     decoration: BoxDecoration(
                       color: Colors.pink[200],
                       border: Border.all(color: Colors.grey),
@@ -147,6 +176,70 @@ class _AnimalLoginScreen extends State<PersonalInformationScreen> {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 10, right: 10),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    Row(
+                      children: const [
+                        Icon(Icons.favorite, size: 30.0, color: Colors.teal),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Your Favorites",
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.account_balance_wallet,
+                          size: 30.0,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Payment",
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.settings,
+                          size: 20.0,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Setting",
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

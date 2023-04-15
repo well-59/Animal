@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/screen/animal_medical_recorders_screen.dart';
-import 'package:package_name/utils/class/statefulWidget.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/screen/4.petPage/petMedicalPage/animal_medical_recorders_screen.dart';
+import 'package:package_name/utils/class/_statefulWidget.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/enum/enum.dart';
 import 'package:package_name/utils/tools.dart';

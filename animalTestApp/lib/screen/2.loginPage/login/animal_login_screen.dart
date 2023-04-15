@@ -1,11 +1,11 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:package_name/screen/homePage/home_screen.dart';
-import 'package:package_name/screen/services/auth_services.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/screen/2.loginPage/register/animal_registration_screen.dart';
+import 'package:package_name/screen/3.homePage/home_screen.dart';
+import 'package:package_name/services/auth_services.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/tools.dart';
-import 'package:package_name/utils/ui_utils.dart';
 
 class AnimalLoginScreen extends StatefulWidget {
   const AnimalLoginScreen({super.key, required this.title});
@@ -22,7 +22,7 @@ class _AnimalLoginScreen extends State<AnimalLoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 35),
+        padding: const EdgeInsets.only(top: 15),
         child: SafeArea(
           child: Column(children: [
             Padding(
@@ -46,7 +46,7 @@ class _AnimalLoginScreen extends State<AnimalLoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                LoginInputButton(
+                LoginInputTextFormField(
                   labeltext: 'Account',
                   icons: Icons.person,
                   width: MediaQuery.of(context).size.width / 1.5,
@@ -57,7 +57,7 @@ class _AnimalLoginScreen extends State<AnimalLoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                LoginInputButton(
+                LoginInputTextFormField(
                   labeltext: 'Password',
                   icons: Icons.key,
                   width: MediaQuery.of(context).size.width / 1.5,
@@ -90,27 +90,32 @@ class _AnimalLoginScreen extends State<AnimalLoginScreen> {
                 ),
               )
             ]),
-            // Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            //   Container(
-            //     margin: const EdgeInsets.only(top: 10, bottom: 20.0),
-            //     width: MediaQuery.of(context).size.width / 1.5,
-            //     height: MediaQuery.of(context).size.height / 15,
-            //     child: OutlinedButton(
-            //       style: ButtonStyle(
-            //           shape: MaterialStateProperty.all(RoundedRectangleBorder(
-            //               borderRadius: BorderRadius.circular(30.0))),
-            //           backgroundColor: MaterialStateProperty.all(
-            //               const Color.fromRGBO(212, 216, 22, 1))),
-            //       onPressed: () {
-            //         log("click", name: "INFO");
-            //       },
-            //       child: const Text(
-            //         "register",
-            //         style: TextStyle(color: black),
-            //       ),
-            //     ),
-            //   )
-            // ]),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 10, bottom: 20.0, left: 60.0, right: 60.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      child: const Text(
+                        'password',
+                        style: TextStyle(color: Colors.blue, fontSize: 15.0),
+                      ),
+                    ),
+                    GestureDetector(
+                      child: const Text(
+                        'register',
+                        style: TextStyle(color: Colors.blue, fontSize: 15.0),
+                      ),
+                      onTap: () async {
+                        await goto(
+                          context,
+                          const AnimalRegistrationScreen(),
+                        );
+                      },
+                    ),
+                  ]),
+            ),
             const Padding(
               padding: EdgeInsets.only(top: 20),
             ),
@@ -146,8 +151,9 @@ class _AnimalLoginScreen extends State<AnimalLoginScreen> {
                       Container(
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage('assets/images/apple.png')),
+                            fit: BoxFit.fill,
+                            image: AssetImage('assets/images/apple.png'),
+                          ),
                           // shape: BoxShape.circle,
                         ),
                         width: MediaQuery.of(context).size.width / 4.5,

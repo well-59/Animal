@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:package_name/utils/tools.dart';
 
@@ -110,6 +112,7 @@ class TextUnderline extends StatelessWidget {
   }
 }
 
+// 預設寬高16的SizeBox
 class Space16 extends StatelessWidget {
   const Space16({super.key, this.width = 16, this.height = 16});
   final double width;
@@ -123,8 +126,9 @@ class Space16 extends StatelessWidget {
   }
 }
 
-class LoginInputButton extends StatelessWidget {
-  const LoginInputButton(
+// 登入頁輸入框
+class LoginInputTextFormField extends StatelessWidget {
+  const LoginInputTextFormField(
       {super.key,
       required this.width,
       required this.height,
@@ -185,33 +189,35 @@ class MyInputButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context, {Color color = Colors.black}) {
-    return Row(children: [
-      Container(
-        margin: const EdgeInsets.only(right: 20),
-        //mainAxisAlignment: MainAxisAlignment.start,
-        child: TextUnderline(name ?? ""),
-      ),
-      // const Space16(width: 5),
-      Container(
-        margin: const EdgeInsets.only(left: 0.0, top: 10.0, bottom: 10.0),
-        width: MediaQuery.of(context).size.width / 3,
-        height: MediaQuery.of(context).size.height / 30,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-          border: Border.all(width: 1.0, color: color),
+    return Row(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(right: 20),
+          //mainAxisAlignment: MainAxisAlignment.start,
+          child: TextUnderline(name ?? ""),
         ),
-        child: const TextField(
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(left: 16, bottom: 18),
-            labelStyle: TextStyle(inherit: true, height: 10.0),
-            border: InputBorder.none,
+        // const Space16(width: 5),
+        Container(
+          margin: const EdgeInsets.only(left: 0.0, top: 10.0, bottom: 10.0),
+          width: MediaQuery.of(context).size.width / 3,
+          height: MediaQuery.of(context).size.height / 30,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+            border: Border.all(width: 1.0, color: color),
           ),
-          style: TextStyle(
-            fontSize: 15.0,
+          child: const TextField(
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.only(left: 16, bottom: 18),
+              labelStyle: TextStyle(inherit: true, height: 10.0),
+              border: InputBorder.none,
+            ),
+            style: TextStyle(
+              fontSize: 15.0,
+            ),
           ),
         ),
-      )
-    ]);
+      ],
+    );
   }
 }
 
@@ -349,3 +355,57 @@ class SquareTile extends StatelessWidget {
     );
   }
 }
+
+// 輸入字串
+// ignore: camel_case_types
+class well_textfield extends StatelessWidget {
+  final bool obscure;
+  final String? label;
+  final String? hint;
+  final String? iniV;
+  final Function onChange;
+
+  const well_textfield(
+      {this.label,
+      this.hint,
+      this.iniV,
+      required this.onChange,
+      this.obscure = false,
+      super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width - 32,
+      child: TextFormField(
+        obscureText: obscure,
+        initialValue: iniV,
+        decoration: InputDecoration(
+          hintText: hint,
+          label: label == null ? null : Text(label ?? ""),
+        ),
+        onChanged: (v) {
+          onChange(v);
+        },
+      ),
+    );
+  }
+}
+
+// class Goto extends StatelessWidget {
+//   final BuildContext context;
+//   final Widget screen;
+//   final bool isReplaced;
+//   const Goto(this.context, this.screen, {this.isReplaced = false, super.key});
+
+//   @override
+//   Future<void> build(BuildContext context) async {
+//     if (isReplaced) {
+//     return  Navigator.pushReplacement(
+//         context, MaterialPageRoute(builder: (context) => screen));
+//   } else {
+//     return Navigator.push(
+//         context, MaterialPageRoute(builder: (context) => screen));
+//   }
+//   }
+// }

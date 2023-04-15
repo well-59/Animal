@@ -86,12 +86,12 @@ class HospitalArea extends StatelessWidget {
                     crossAxisCount: 3, childAspectRatio: 1),
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () => print(index),
+                    onTap: () => debugPrint('$index'),
                     child: Column(
                       children: [
                         Container(
                           width: 117,
-                          height: 117,
+                          height: 100,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(

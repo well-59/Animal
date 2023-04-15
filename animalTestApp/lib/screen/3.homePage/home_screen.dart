@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:package_name/screen/main_screen.dart';
-import 'package:package_name/screen/member_screen.dart';
-import 'package:package_name/screen/more_screen.dart';
-import 'package:package_name/screen/pet_data_screen.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/screen/4.petPage/member_screen.dart';
+import 'package:package_name/screen/6.morePage/more_screen.dart';
+import 'package:package_name/screen/5.hospitalPage/pet_data_screen.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 
 class HomeScreen extends StatefulWidget {

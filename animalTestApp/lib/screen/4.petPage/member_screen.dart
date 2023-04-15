@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 
 class MemberScreen extends StatefulWidget {
   const MemberScreen({super.key});
@@ -40,8 +40,9 @@ class _MemberScreenState extends State<MemberScreen> {
                         children: nameArr
                             .map((e) => ItemImgWithText(
                                   e,
-                                  width: 100,
-                                  height: 80,
+                                  width: MediaQuery.of(context).size.width / 5,
+                                  height:
+                                      MediaQuery.of(context).size.height / 8,
                                 ))
                             .toList(),
                       ),

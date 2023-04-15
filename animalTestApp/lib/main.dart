@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:package_name/screen/homePage/home_screen.dart';
-import 'package:package_name/screen/login_screen.dart';
-import 'package:package_name/screen/splash_screen.dart';
+import 'package:package_name/screen/3.homePage/home_screen.dart';
+import 'package:package_name/screen/2.loginPage/login/login_screen.dart';
+import 'package:package_name/screen/1.splashPage/splash_screen.dart';
 
 void main() {
   runApp(const AnimalApp());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/screen/animal_login_screen.dart';
+import 'package:package_name/screen/2.loginPage/login/animal_login_screen.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/tools.dart';
 

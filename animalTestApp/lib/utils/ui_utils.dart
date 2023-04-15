@@ -1,7 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/enum/enum.dart';
 
@@ -251,4 +250,26 @@ class DemoButton extends StatelessWidget {
       ),
     );
   }
+}
+
+bool validatorEmpty(String str) {
+  return str != "";
+}
+
+bool validatorLength(String str, {int min = 8, int max = 20}) {
+  return (str.length >= min && str.length <= max);
+}
+
+bool validatorContain(String str, int type) {
+  if (type == 1) {
+    return RegExp('.*[A-Z].*').hasMatch(str);
+  } else if (type == 2) {
+    return RegExp('.*[a-z].*').hasMatch(str);
+  } else {
+    return RegExp('.*[0-9].*').hasMatch(str);
+  }
+}
+
+bool isEmail(String emailStr) {
+  return EmailValidator.validate(emailStr);
 }

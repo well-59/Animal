@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/screen/homePage/home_screen.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/screen/3.homePage/home_screen.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/enum/enum.dart';
 import 'package:package_name/utils/tools.dart';

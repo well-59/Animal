@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/screen/animal_info_screen.dart';
-import 'package:package_name/screen/personal_info_screen.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/screen/4.petPage/animal_info_screen.dart';
+import 'package:package_name/screen/3.homePage/personalPage/personal_info_screen.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/constant.dart';
 import 'package:package_name/utils/enum/enum.dart';
 import 'package:package_name/utils/tools.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_name/utils/class/statelessWidget.dart';
+import 'package:package_name/utils/class/_statelessWidget.dart';
 import 'package:package_name/utils/enum/enum.dart';
 import 'package:package_name/utils/ui_utils.dart';
 
